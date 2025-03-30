@@ -44,6 +44,5 @@ class EventSerializer(serializers.ModelSerializer):
         model = Event
         fields = [
             'id', 'title', 'description', 'organiser', 'organiser_id', 'posted_by',
-            'posted_by_id', 'venue', 'start_time', 'end_time', 'start_date', 
-            'end_date', 'recurrence', 'recur_start', 'recur_end'
+            'posted_by_id', 'venue', 'start_time', 'end_time', 'recurrence', 'recur_start', 'recur_end'
         ]

@@ -33,7 +33,7 @@ def create(request):
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 # Edit an existing event
-@api_view(['PUT', 'PATCH'])
+@api_view(['GET','PUT', 'PATCH'])
 def edit(request, event_id):
     event = get_object_or_404(Event, id=event_id)
     serializer = EventSerializer(event, data=request.data, partial=True)  # Partial=True allows updating some fields
@@ -60,7 +60,7 @@ def show_event(request, event_id):
 @api_view(['GET'])
 def show_user(request, event_id):
     event = get_object_or_404(Event, id=event_id)
-    user = get_object_or_404(User, name=event.organiser)  # Assuming `organiser` stores the user's name
+    user = get_object_or_404(User, name=event.posted_by)  # Assuming `organiser` stores the user's name
     serializer = UserSerializer(user)
     return Response(serializer.data, status=status.HTTP_200_OK)
 
