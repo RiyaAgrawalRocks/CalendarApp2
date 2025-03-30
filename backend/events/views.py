@@ -67,7 +67,7 @@ def show_user(request, event_id):
 
 @api_view(['GET'])
 def callback(request):
-
+    
     return
 
 
